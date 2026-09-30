@@ -31,3 +31,10 @@ The trade-off is simplicity over spec breadth. `Accept-Language` does not do RFC
 - `q=0` excludes that item entirely; it is not a fallback.
 - Wildcards in the *server's* `available` list are ignored — a server cannot actually serve `*/*`, so it would be a lie to match it.
 - When an item matches multiple ranges, the most specific range wins, then the highest `q`, then the earliest position in the header.
+
+## Performance
+
+The window keeps a bounded buffer, so `push` is constant time and memory does not
+grow with the length of the stream. `peak` and `trough` are linear in the window
+size, which is the trade that keeps `push` cheap.
+
