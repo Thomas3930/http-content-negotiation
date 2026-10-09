@@ -1,6 +1,6 @@
 [project]
 name = "http-content-negotiation"
-version = "0.1.1"
+version = "0.1.2"
 description = "Evaluate Accept, Accept-Encoding, and Accept-Language headers against available options and return the best match."
 requires-python = ">=3.10"
 dependencies = []
